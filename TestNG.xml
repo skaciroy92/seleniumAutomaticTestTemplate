@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Wiinvent Automatic Test" >
+    <listeners>
+        <listener class-name="com.wi.main.listeners.TestListener"/>
+        <listener class-name="com.wi.main.listeners.AnnotationTransformer"/>
+    </listeners>
+
+    <test name="LoginTest">
+        <classes>
+            <class name="com.wi.main.test.LoginTests"/>
+        </classes>
+    </test>
+</suite>
