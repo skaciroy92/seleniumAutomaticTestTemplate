@@ -5,8 +5,8 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openqa.selenium.Platform;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
@@ -22,12 +22,8 @@ public class ExcelUtil {
 	public static int columnNumber;
 
 	public static void setExcelFileSheet(String sheetName) throws Exception {
-		if (Platform.getCurrent().toString().equalsIgnoreCase("MAC")) {
-			testDataExcelPath = currentDir + "/src/main/resources/testingData/";
-		} else if (Platform.getCurrent().toString().contains("WIN")) {
-			testDataExcelPath = currentDir + "\\src\\main\\resources\\testingData\\";
-		}
-		FileInputStream ExcelFile = new FileInputStream(testDataExcelPath + testDataExcelFileName);
+		testDataExcelPath = currentDir + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "testingData";
+		FileInputStream ExcelFile = new FileInputStream(testDataExcelPath + File.separator + testDataExcelFileName);
 		excelWBook = new XSSFWorkbook(ExcelFile);
 		excelWSheet = excelWBook.getSheet(sheetName);
 	}
